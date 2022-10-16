@@ -49,7 +49,7 @@ const Nav = () => {
               <span className="px-5">تواصل معنا</span>
             </Link>
             <Link to="courses" className="w-auto flex items-center">
-              <span className="px-5">تدريبات</span>
+              <span className="px-5">كورسات</span>
             </Link>
           </div>
         </div>
@@ -98,7 +98,18 @@ const Nav = () => {
                 className="pl-3 text-3xl"
                 icon={faHome}
               ></FontAwesomeIcon>
-              <Link to="/" className="text-3xl">
+              <Link
+                onClick={() => {
+                  setAnimate({ opacity: 0, display: "flex", x: 1000 });
+                  window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                to="/"
+                className="text-3xl"
+              >
                 الرئيسية{" "}
               </Link>
             </div>
@@ -107,7 +118,18 @@ const Nav = () => {
                 className="pl-3 text-3xl"
                 icon={faPhone}
               ></FontAwesomeIcon>
-              <Link to="/contact" className="text-3xl">
+              <Link
+                onClick={() => {
+                  setAnimate({ opacity: 0, display: "flex", x: 1000 });
+                  window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                to="/contact"
+                className="text-3xl"
+              >
                 تواصل معنا{" "}
               </Link>
             </div>
@@ -116,7 +138,18 @@ const Nav = () => {
                 className="pl-3 text-3xl"
                 icon={faMarker}
               ></FontAwesomeIcon>
-              <Link to="/about" className="text-3xl">
+              <Link
+                onClick={() => {
+                  setAnimate({ opacity: 0, display: "flex", x: 1000 });
+                  window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
+                to="/about"
+                className="text-3xl"
+              >
                 عنا
               </Link>
             </div>

@@ -1,11 +1,20 @@
 import { motion } from "framer-motion";
 import NiceButton from "../../NiceButton";
-import hero2 from "../../../img/Canva-Happy-Mature-Woman-Wearing-Eyeglasses-1920s.webp";
+import hero2 from "../../../img/hero3.jpg";
 import background from "../../../img/usukhbayar-gankhuyag-1003789-unsplash-Custom.webp";
 import background2 from "../../../img/prottoy-hassan-283028-unsplash-Large.webp";
 import {
   faBook,
   faBookmark,
+  faBookOpen,
+  faBookReader,
+  faBrain,
+  faCartArrowDown,
+  faCertificate,
+  faClock,
+  faMedal,
+  faPeopleRoof,
+  faPersonRays,
   faPhone,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +34,7 @@ import { useDispatch } from "react-redux";
 import { changeStyle } from "../../../redux/navSlice";
 
 import logoBlue from "../../../img/logo-black.png";
+import Card from "../home/Card";
 
 interface Person {
   img: string;
@@ -36,21 +46,36 @@ interface Person {
 const persons: Person[] = [
   {
     img: person1,
-    name: "علاء محمد",
+    name: "علاء صادق ",
     position: "المدير",
     describe: "المدير التنفيزي للشركة والقائم باعمال الشركه لحين وصول اي شخص",
   },
   {
     img: person2,
-    name: "يسرا محمد",
+    name: "مريم الشامسي",
     position: "مدير الفرع",
     describe: "المدير التنفيزي للشركة والقائم باعمال الشركه لحين وصول اي شخص",
   },
   {
     img: person3,
-    name: "مصطفي علي",
+    name: " احمد لطيف ",
     position: "الدعم الفني",
     describe: "المدير التنفيزي للشركة والقائم باعمال الشركه لحين وصول اي شخص",
+  },
+];
+
+const successStory = [
+  {
+    head: "",
+    body: "لم تكن فكرة I HUMAN وليدة اللحظة حيث بدأت الشركة في مصر منذ أكثر من 10 سنين من العمل المتواصل وتقديم الدعم المباشر لكل المتدربين المنتسبين للبرامج التدريبية",
+  },
+  {
+    head: "",
+    body: "من خلال نجاحنا في مصر ودراسة السوق الامارات ولثقتنا الكبيرة فيما نقدم وفي برامجنا التدريبية تم عمل اول برنامج تدريبي في شهر يونيو 2022 POC Power of Change وحضر البرنامج العديد من الأشخاص الذين اخذو قرار بالتغير",
+  },
+  {
+    head: "",
+    body: "وحتي تلك اللحظة نري ما يقدمون من انجازات علي ارض الواقع كلٌ فيما يحب   سنعرض قصص نجاحهم تباعاُ لتتعرفوا عليهم اكثر ربما تكون واحد منهم ",
   },
 ];
 
@@ -85,18 +110,19 @@ const About = () => {
               مرحبا سعدت بلقائك!
             </p>
             <h1 className="text-secondary font-bold text-6xl  w-full md:w-9/12 mt-10 text-center md:text-right">
-              أنا أساعد الأفراد ليصبحوا أفضل نسخة.
+              فكرة I-Human
             </h1>
-            <p className="text-mygray text-lg mt-5  w-full md:w-9/12 text-center md:text-justify">
-              أنا سعيد لأنك وصلت إلى هنا لإرسال إشارة استغاثة ، وإبلاغ مجلس
-              الشيوخ بأن جميع من كانوا على متن الطائرة قد قتلوا. دانتوين. لن
-              أذهب إلى Alderaan. أنا حقا يجب أن أذهب.
+            <p className="text-mygray text-lg mt-5  w-full md:w-10/12 text-center md:text-justify">
+              تتمحور فكرة I HUMAN حول إيصال الانسان بذاته وتعريفه بشكل أكبر علي
+              جوانب شخصيته ورفع درجة وعيه ليتمكن من مواجهة الصعوبات والتحديات
+              التي تواجه من خلال تقديم استشارات وتدريبات يطور فيها حياته الشخصية
+              والمهنية ليصبح مُلهم وذات تأثير في مجتمعه ووطنه
             </p>
-            <p className="text-mygray text-lg mt-5  w-full md:w-9/12 text-center md:text-justify">
-              لكن هذا بالنسبة لي. أرسل إشارة استغاثة وأبلغ مجلس الشيوخ بأن جميع
-              من كانوا على متنها قتلوا. دانتوين. هم على دانتوين. ستعود الخطط
-              التي تشير إليها قريبًا في أيدينا. الدران؟ لن أذهب إلى Alderaan.
-              يجب أن أذهب إلى المنزل.
+            <p className="text-mygray text-lg mt-5  w-full md:w-10/12 text-center md:text-justify">
+              وكل ذلك يحدث من خلال منصة رقمية تتيح للأفراد طلب استشارات اونلاين
+              تقدم عن طريق متخصصين في علوم الكوتشينج لطلب المساعدة في أمور تخص
+              حياتهم او مشاكل يعانون منها حيث يمكنهم أيضا الالتحاق بالبرامج
+              التدريبة المقدمة من I HUMAN
             </p>
             <NiceButton icon={faBookmark} text="الكورسات" link=""></NiceButton>
           </motion.div>
@@ -131,67 +157,65 @@ const About = () => {
             قصة نجاحنا
           </h1>
           <p className="text-mygray text-lg mt-8 text-center">
-            تعرف علي قصه نجاحنا
+            رحلة نجاح I HUMAN
           </p>
-          <div className="flex flex-row flex-wrap items-center justify-start mt-16 relative">
+          <div className="flex flex-row flex-wrap items-center justify-start mt-8 relative">
             <div className="w-9/12 md:w-5/12">
               <FlowElements
                 dir="left-0 -ml-2"
-                head="أنت تقرر حقًا تحسين نفسك"
-                body="
-        ممغنط بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها. ممغنط
-        بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها."
+                head="فكرة I-Human"
+                body="لم تكن فكرة I HUMAN وليدة اللحظة حيث بدأت الشركة في مصر منذ أكثر من 10 سنين من العمل المتواصل وتقديم الدعم المباشر لكل المتدربين المنتسبين للبرامج التدريبية"
               ></FlowElements>
             </div>
             <div className="w-3/12 md:w-2/12 flex justify-center items-center ">
               <FontAwesomeIcon
                 style={{ zIndex: 2 }}
-                className="text-2xl text-white p-6 bg-mygreen rounded-full"
-                icon={faUser}
+                className="text-2xl text-white p-6 bg-primary rounded-full"
+                icon={faBrain}
               ></FontAwesomeIcon>
             </div>
             <div className="w-0 md:w-5/12"></div>
             <div
-              className="absolute top-1/2  left-1/2 line w-1 bg-mygreen"
+              className="absolute top-1/2  left-1/2 line1 w-1 bg-primary"
               style={{ zIndex: 1 }}
             ></div>
           </div>
-          <div className="flex flex-row flex-wrap items-center justify-end mt-16 relative">
+          <div className="flex flex-row flex-wrap items-center justify-end mt-8 relative">
             <div className="w-0 md:w-5/12"></div>
             <div className="w-3/12 md:w-2/12 flex justify-center items-center  ">
               <FontAwesomeIcon
-                className="text-2xl text-white p-6 bg-mygreen rounded-full"
+                style={{ zIndex: 2 }}
+                className="text-2xl text-white p-6 bg-primary rounded-full"
                 icon={faBook}
               ></FontAwesomeIcon>
             </div>
             <div className="w-9/12 md:w-5/12">
               <FlowElements
                 dir="right-0 -mr-2"
-                head="أنت تقرر حقًا تحسين نفسك"
+                head="نجاحنا في مصر "
                 body="
-        ممغنط بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها. ممغنط
-        بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها."
+                من خلال نجاحنا في مصر ودراسة السوق الامارات ولثقتنا الكبيرة فيما نقدم وفي برامجنا التدريبية تم عمل اول برنامج تدريبي في شهر يونيو 2022 POC Power of Change وحضر البرنامج العديد من الأشخاص الذين اخذو قرار بالتغير"
               ></FlowElements>
             </div>
             <div
-              className="absolute top-1/2  left-1/2 line w-1 bg-mygreen"
+              className="absolute top-1/2  left-1/2 line2 w-1 bg-primary"
               style={{ zIndex: 1 }}
             ></div>
           </div>
-          <div className="flex flex-row flex-wrap items-center justify-start mt-16 relative">
+          <div className="flex flex-row flex-wrap items-center justify-start mt-8 relative">
             <div className="w-9/12 md:w-5/12">
               <FlowElements
                 dir="left-0 -ml-2"
-                head="أنت تقرر حقًا تحسين نفسك"
+                head="انجازات المتدربين"
                 body="
-        ممغنط بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها. ممغنط
-        بقوة كافية مجال البيع المسبق لجميع النتائج الأولية لتقديرها."
+                وحتي تلك اللحظة نري ما يقدمون من انجازات علي ارض الواقع كلٌ فيما يحب   سنعرض قصص نجاحهم تباعاُ لتتعرفوا عليهم اكثر ربما تكون واحد منهم "
               ></FlowElements>
             </div>
             <div className="w-3/12 md:w-2/12 flex justify-center items-center ">
               <FontAwesomeIcon
-                className="text-2xl text-white p-6 bg-mygreen rounded-full"
-                icon={faUser}
+                style={{ zIndex: 2 }}
+                className="text-2xl text-white p-6 bg-primary rounded-full"
+                icon={faClock}
               ></FontAwesomeIcon>
             </div>
             <div className="w-0 md:w-5/12"></div>
@@ -217,32 +241,95 @@ const About = () => {
           <h1 className="text-6xl text-center">رؤيتنا</h1>
           <p className="text-2xl text-center mt-10 w-8/12 mx-auto">
             {" "}
-            لكن هذا بالنسبة لي. أرسل إشارة استغاثة وأبلغ مجلس الشيوخ بأن جميع من
-            كانوا على متنها قتلوا. دانتوين. هم على دانتوين. ستعود الخطط التي
-            تشير إليها قريبًا في أيدينا. الدران؟ لن أذهب إلى Alderaan. يجب أن
-            أذهب إلى المنزل.
+            نتطلع لنكون الخيار الأنسب والأفضل للتدريب وتقديم استشارات اللايف
+            كوتشينج في دولة الامارات.
+          </p>
+          <h1 className="text-6xl text-center mt-10">رسالتنا</h1>
+          <p className="text-2xl text-center mt-10 w-8/12 mx-auto">
+            {" "}
+            إيصال القيم العليا والأخلاق وان نكون مرشدا فكريا ونفسيا وروحيا من
+            خلال تدريبات عملية تُنير الفكر وتلهم العقل وتشعل الحماس لتحقيق نتائج
+            ملموسة لكل من ينتسب الينا.
           </p>
         </div>
       </section>
-      <section
-        className="flex flex-row justify-center min-h-screen py-32"
-        style={{ backgroundColor: "#eafdff" }}
-      >
+      <section className="flex flex-row justify-center pb-32 pt-32">
         <div className="container mx-auto min-h-screen  flex flex-col items-center flex-wrap justify-center w-11/12 md:w-full">
-          <h1 className="text-secondary font-bold text-6xl mt-5 text-center ">
-            استمتع بالكورسات <br></br>الان
-          </h1>
-          <p className="text-mygray text-lg mt-8">
-            يمكنني مساعدتك في هذه المجالات بالذات.
+          <p className="inline px-10 py-4 rounded-r-full rounded-bl-full font-bold bg-primary">
+            أنا مدرب حياة.
           </p>
-          <div className="flex flex-row flex-wrap w-full mt-10 gap-10">
-            {imgs.map((img) => {
-              return <Course img={img}></Course>;
-            })}
+          <h1
+            className="text-secondary font-bold text-6xl mt-5 text-center"
+            style={{ lineHeight: "8vh" }}
+          >
+            الخدمات التي تقدمها<br></br> I-Human
+          </h1>
+          <p className="text-mygray text-xl mt-8 text-center">
+            تنقسم الخدامات في I-Human الي قسمين : <br></br>خدمات حضورية وخدمات
+            اون لاين{" "}
+          </p>
+          <div className="flex flex-row flex-wrap w-full gap-16 mt-10">
+            <Card
+              icon={faPersonRays}
+              head="POC"
+              body="ختصار لكلمة Power of Change وتعني قوة التغيير"
+              category=" حضوري"
+              color="#EAFDFF"
+            ></Card>
+            <Card
+              icon={faBrain}
+              head="NLP"
+              body="Neuro Linguistic Programming البرمجة اللغوية العصبية "
+              category="حضوري"
+              color="#E4FFE7"
+            ></Card>
+            <Card
+              icon={faBookOpen}
+              head="استشارات "
+              category=" اون لاين"
+              body="استشارات من خلال كوتش معتمد بسعر رمزي  "
+              color="#F8F6DC"
+            ></Card>
           </div>
+          <div className="flex flex-row flex-wrap w-full gap-16 mt-10">
+            <Card
+              icon={faBook}
+              head="كورسات "
+              body="كورسات اونلاين بسعر رمزي  "
+              category=" اون لاين"
+              color="#E4FFE7"
+            ></Card>
+            <Card
+              icon={faPeopleRoof}
+              head="Soft Skills"
+              body="I HUMAN Soft Skills"
+              category="حضوري"
+              color="#EAFDFF"
+            ></Card>
+            <Card
+              icon={faBookReader}
+              head="Coaching Program "
+              body="Coaching Program"
+              category="حضوري"
+              color="#E4FFE7"
+            ></Card>
+          </div>
+          <div className="flex flex-row flex-wrap w-full gap-16 mt-10">
+            <Card
+              icon={faMedal}
+              head="MS "
+              body="Motivational speaker"
+              category="حضوري"
+              color="#EAFDFF"
+            ></Card>
 
-          <div className="flex w-full items-center justify-center">
-            <NiceButton icon={faBookmark} text="المزيد" link=""></NiceButton>
+            <Card
+              icon={faCartArrowDown}
+              head="منتجات  "
+              category=" اون لاين"
+              body="(تيشيرت – باند الطاقة – نباتات الوفرة - عطر السعادة – أقلام الثراء – ملزمات الأهداف والنجاح – ملزمات الكترونية يمكن طباعتها)"
+              color="#F8F6DC"
+            ></Card>
           </div>
         </div>
       </section>
@@ -261,13 +348,36 @@ const About = () => {
             minHeight: "65vh",
           }}
         >
-          <h1 className="text-6xl text-center">مهمتنا</h1>
+          <h1 className="text-6xl text-center">اهدافنا</h1>
+          <p className="text-2xl text-center mt-10 w-8/12 mx-auto">
+            <ul className="list-decimal text-center inline-table ">
+              <li className="text-center">
+                تقديم 10 مخيمات تدريبية في السنة الاولي من الانطلاق في دولة
+                الامارات العربية المتحدة
+              </li>
+              <li>
+                تقديم 1000 استشارة للأشخاص المهتمين بتطوير الجوانب الشخصية او
+                المهنية في السنة الاولي من الانطلاق
+              </li>
+              <li>
+                عرض 20 قصة نجاح المستفيدين من برامجنا التدريبية والاحتفاء بهم في
+                السنة الاولي من الانطلاق
+              </li>
+              <li>
+                تدريب 500 شخص يري في نفسه ويحلم ان يكون مدرب او لايف كوتش ومتحدث
+                تحفيزي ومستشار يساعد الأشخاص علي الارتقاء بذواتهم لتأهيلهم من
+                خلال برامج خاصة جدا
+              </li>
+              <li>
+                تخريج اول دفعة معتمدة 10 اشخاص معتمدين لايف كوتش ومتحدث تحفيزي
+                من دولة الامارات
+              </li>
+            </ul>{" "}
+          </p>
+          <h1 className="text-6xl text-center mt-10">قيمنا</h1>
           <p className="text-2xl text-center mt-10 w-8/12 mx-auto">
             {" "}
-            لكن هذا بالنسبة لي. أرسل إشارة استغاثة وأبلغ مجلس الشيوخ بأن جميع من
-            كانوا على متنها قتلوا. دانتوين. هم على دانتوين. ستعود الخطط التي
-            تشير إليها قريبًا في أيدينا. الدران؟ لن أذهب إلى Alderaan. يجب أن
-            أذهب إلى المنزل.
+            الثقة, القوة ,الحكمة ,الالهام ,الوفرة الشجاعة ,الحب ,التعاون ,الوعي
           </p>
         </div>
       </section>

@@ -9,7 +9,7 @@ import logo from "../img/logo-white.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-primary to-primary flex justify-center">
+    <footer className="bg-gradient-to-t from-primary to-light  flex justify-center pt-64">
       <div className="container mx-auto flex flex-row flex-wrap py-24 gap-32 w-11/12 md:w-full">
         <div className="flex flex-col flex-1">
           <Link to="/" className="text-light text-2xl pt-5">

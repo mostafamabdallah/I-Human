@@ -29,9 +29,11 @@ body {
 }
 
 #hero {
-  background-image: url(img/hero.webp);
+  background-image: url(img/hero4.jpg);
   min-height: 90vh;
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
 }
 
 #hero .overlay {
@@ -134,7 +136,11 @@ body {
   background: #80d0e0;
 }
 
-.line {
+.line1 {
+  height: calc(100% + 65px);
+}
+
+.line2 {
   height: calc(100% + 32px);
 }
 

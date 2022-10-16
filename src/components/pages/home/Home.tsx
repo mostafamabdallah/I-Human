@@ -5,18 +5,23 @@ import icon3 from "../../../img/logo-05.webp";
 import icon4 from "../../../img/logo-08.webp";
 import icon5 from "../../../img/logo-15.webp";
 import background from "../../../img/myoung-kang-569499-unsplash-Custom.webp";
-import hero2 from "../../../img/Canva-Happy-Mature-Woman-Wearing-Eyeglasses-1920s.webp";
+import hero2 from "../../../img/hero3.jpg";
 import Card from "./Card";
 import Course from "../../Course";
 import image1 from "../../../img/course1-1-1.webp";
 import image2 from "../../../img/course3-1.webp";
 import image3 from "../../../img/course5-1.webp";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBookmark,
+  faBookOpen,
+  faBrain,
+  faPersonRays,
+} from "@fortawesome/free-solid-svg-icons";
 import NiceButton from "../../NiceButton";
 import { changeStyle } from "../../../redux/navSlice";
 import { useDispatch } from "react-redux";
 import logo from "../../../img/logo-white.png";
+import { Link } from "react-router-dom";
 const imgs = [image1, image2, image3];
 
 const Home: FC = () => {
@@ -50,7 +55,7 @@ const Home: FC = () => {
                   backgroundColor: "#ffffff4f",
                 }}
               >
-                أنا مدرب حياة.
+                نحن I-Human{" "}
               </motion.p>
               <motion.h1
                 initial={{
@@ -69,7 +74,7 @@ const Home: FC = () => {
               >
                 تكافح في الحياة؟
                 <br></br>
-                يمكنني المساعدة.
+                يمكننا المساعدة.
               </motion.h1>
               <motion.p
                 initial={{
@@ -86,10 +91,11 @@ const Home: FC = () => {
                 }}
                 className="text-2xl mt-5 md:text-justify text-center w-full md:w-8/12 lg:w-11/12"
               >
-                اكتشف 3 خطوات بسيطة اكتشفتها لاختراق الإنتاجية ، فهي تعمل٪ 100.
-                هل تريد تغيير حياتك؟
+                إيصال الانسان بذاته وتعريفه بشكل أكبر علي جوانب شخصيته ورفع درجة
+                وعيه ليتمكن من مواجهة الصعوبات والتحديات التي تواجه
               </motion.p>
-              <motion.a
+              <motion.div
+                className="button"
                 initial={{
                   opacity: 0,
                 }}
@@ -100,11 +106,14 @@ const Home: FC = () => {
                   duration: 1,
                   delay: 1.5,
                 }}
-                href="#"
-                className=" text-light px-10 py-5 mt-5 button font-bold rounded-md"
               >
-                احصل على دليلك المجاني الآن
-              </motion.a>
+                <Link
+                  to="/about"
+                  className=" text-light px-10 py-5 mt-5 button font-bold rounded-md"
+                >
+                  احصل على دليلك المجاني الآن
+                </Link>
+              </motion.div>
               <motion.div
                 initial={{
                   opacity: 0,
@@ -158,29 +167,41 @@ const Home: FC = () => {
           <p className="inline px-10 py-4 rounded-r-full rounded-bl-full font-bold bg-primary">
             أنا مدرب حياة.
           </p>
-          <h1 className="text-secondary font-bold text-6xl mt-5 text-center ">
-            الخدمات التي أقدمها<br></br> لعملائي
+          <h1
+            className="text-secondary font-bold text-6xl mt-5 text-center"
+            style={{ lineHeight: "8vh" }}
+          >
+            الخدمات التي تقدمها<br></br> I-Human
           </h1>
-          <p className="text-mygray text-lg mt-8">
-            يمكنني مساعدتك في هذه المجالات بالذات.
+          <p className="text-mygray text-xl mt-8 text-center">
+            تنقسم الخدامات في I-Human الي قسمين : <br></br>خدمات حضورية وخدمات
+            اون لاين{" "}
           </p>
           <div className="flex flex-row flex-wrap w-full gap-16 mt-10">
             <Card
-              head="التدريب"
-              body="تذكر ، يمكن أن يشعر Jedi بالقوة تتدفق من خلاله. أنا مندهش من أن لديك الشجاعة لتحمل المسؤولية بنفسك."
+              icon={faPersonRays}
+              head="POC"
+              body="ختصار لكلمة Power of Change وتعني قوة التغيير"
+              category=" اون لاين"
               color="#EAFDFF"
             ></Card>
             <Card
-              head="تدريب المجموعة"
-              body="تذكر ، يمكن أن يشعر Jedi بالقوة تتدفق من خلاله. أنا مندهش من أن لديك الشجاعة لتحمل المسؤولية بنفسك."
+              icon={faBrain}
+              head="NLP"
+              body="Neuro Linguistic Programming البرمجة اللغوية العصبية "
+              category=" اون لاين"
               color="#E4FFE7"
             ></Card>
             <Card
-              head="التدريب التنفيذي"
-              body="تذكر ، يمكن أن يشعر Jedi بالقوة تتدفق من خلاله. أنا مندهش من أن لديك الشجاعة لتحمل المسؤولية بنفسك."
+              icon={faBookOpen}
+              head="استشارات "
+              category=" اون لاين"
+              body="استشارات من خلال كوتش معتمد بسعر رمزي  "
               color="#F8F6DC"
             ></Card>
           </div>
+
+          <NiceButton icon={faBookmark} text="المزيد" link="about"></NiceButton>
         </div>
       </section>
       <section
@@ -250,18 +271,19 @@ const Home: FC = () => {
               مرحبا سعدت بلقائك!
             </p>
             <h1 className="text-secondary font-bold text-6xl  w-full md:w-9/12 mt-10 text-center md:text-right">
-              أنا أساعد الأفراد ليصبحوا أفضل نسخة.
+              فكرة I-Human
             </h1>
-            <p className="text-mygray text-lg mt-5  w-full md:w-9/12 text-center md:text-justify">
-              أنا سعيد لأنك وصلت إلى هنا لإرسال إشارة استغاثة ، وإبلاغ مجلس
-              الشيوخ بأن جميع من كانوا على متن الطائرة قد قتلوا. دانتوين. لن
-              أذهب إلى Alderaan. أنا حقا يجب أن أذهب.
+            <p className="text-mygray text-lg mt-5  w-full md:w-10/12 text-center md:text-justify">
+              تتمحور فكرة I HUMAN حول إيصال الانسان بذاته وتعريفه بشكل أكبر علي
+              جوانب شخصيته ورفع درجة وعيه ليتمكن من مواجهة الصعوبات والتحديات
+              التي تواجه من خلال تقديم استشارات وتدريبات يطور فيها حياته الشخصية
+              والمهنية ليصبح مُلهم وذات تأثير في مجتمعه ووطنه
             </p>
-            <p className="text-mygray text-lg mt-5  w-full md:w-9/12 text-center md:text-justify">
-              لكن هذا بالنسبة لي. أرسل إشارة استغاثة وأبلغ مجلس الشيوخ بأن جميع
-              من كانوا على متنها قتلوا. دانتوين. هم على دانتوين. ستعود الخطط
-              التي تشير إليها قريبًا في أيدينا. الدران؟ لن أذهب إلى Alderaan.
-              يجب أن أذهب إلى المنزل.
+            <p className="text-mygray text-lg mt-5  w-full md:w-10/12 text-center md:text-justify">
+              وكل ذلك يحدث من خلال منصة رقمية تتيح للأفراد طلب استشارات اونلاين
+              تقدم عن طريق متخصصين في علوم الكوتشينج لطلب المساعدة في أمور تخص
+              حياتهم او مشاكل يعانون منها حيث يمكنهم أيضا الالتحاق بالبرامج
+              التدريبة المقدمة من I HUMAN
             </p>
             <NiceButton icon={faBookmark} text="المزيد" link=""></NiceButton>
           </motion.div>
@@ -311,7 +333,11 @@ const Home: FC = () => {
           </div>
 
           <div className="flex w-full items-center justify-center">
-            <NiceButton icon={faBookmark} text="المزيد" link="courses"></NiceButton>
+            <NiceButton
+              icon={faBookmark}
+              text="المزيد"
+              link="courses"
+            ></NiceButton>
           </div>
         </div>
       </section>

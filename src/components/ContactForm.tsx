@@ -51,7 +51,7 @@ const ContactForm = () => {
               icon={faEnvelope}
             ></FontAwesomeIcon>
             <a href="mailto:mostafamabdllah94@gmail.com" className="text-xl">
-              الايميل:mostafamabdllah94@gmail.com
+              الايميل:admin@gmail.com
             </a>
           </div>
         </div>
